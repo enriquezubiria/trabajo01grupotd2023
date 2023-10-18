@@ -1,5 +1,5 @@
 ---
-title: "Enunciado de los problemas"
+title: "Resolución de los problemas"
 author: "María Vázquez de la Torre Becerra"
 date: "`r Sys.Date()`"
 output:
@@ -7,16 +7,22 @@ output:
   html_document: default
 ---
 
-```{r setup, include=FALSE}
+```{r setupSolMaria, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Teoría de la Decisión bajo Incertidumbre
 
-En el siguiente documento vamos a enunciar los problemas inventados por cada miembro del grupo.
+En el siguiente documento vamos a resolver los problemas inventados por cada miembro del grupo.
+
+Primero cargamos el fichero R donde se encuentran todas las funciones que vamos a necesitar para hacer los ejercicios.
+
+```{r}
+source("teoriadecision_funciones_incertidumbre.R")
+```
+
 
 #### Problema 1 (María Vázquez de la Torre Becerra) \newline
-
 
 María y Daniel están buscando una hacienda para celebrar su boda, su mayor ilusión es celebrarla al aire libre, pero no saben si el día de su boda lloverá o no. Están en duda con tres Haciendas que les ofrecen las siguientes condiciones:
 
@@ -28,3 +34,36 @@ María y Daniel están buscando una hacienda para celebrar su boda, su mayor ilu
 
 Si María Y Daniel tienen 300 invitados a la boda y quieren 7 horas de barra libre. ¿Que hacienda deberían escoger para minimizar el costo?
 
+Planteamiento:
+
+-   Una única decisión entre dos personas.
+-   Tabla de decisión: costos (desfavorable)
+-   Alternativas:
+    -   d1 = "Hacienda Don Quijote"
+    -   d2 = "Hacienda Rinconete y Cortadillo"
+    -   d3 = "Hacienda La Celestina"
+-   Estados de la naturaleza:
+    -   e1 = "No llueve"
+    -   e2 ="Llueve"
+
+Matriz de decisión:
+
+```{r}
+m11 <- 2000 + 150*300
+m12 <- 2000 + 150*300 + 500
+m21 <- 4000 + 120*300 + 150*7
+m22 <- 2500 + 120*300 + 150*7
+m31 <- 500 + 125*300 + 350 + 165*3
+m32 <- 500 + 125*300 + 350 + 165*3 + 3000
+
+tabla2 <- crea.tablaX(c(m11,m12,
+                      m21,m22,
+                      m31,m32), numalternativas = 3, numestados = 2)
+rownames(tabla2) <- c("Hacienda Don Quijote","Hacienda Rinconete y Cortadillo","Hacienda La Celestina")
+colnames(tabla2) <- c("No llueve","Llueve")
+knitr::kable(tabla2)
+sol<-criterio.Todos(tabla2,0.5,F)
+knitr::kable(sol[4,-c(1,2)])
+```
+
+Según el criterio optimista María y Daniel deberían escoger la *Hacienda La Celestina* , pero según el resto de criterios María y Daniel deberían de escoger la *Hacienda Rinconete y Cortadillo*.
