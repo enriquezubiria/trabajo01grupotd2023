@@ -31,15 +31,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Rocío Santos Mojarro
 
-#```{r, child=c('rocio/enunciados.Rmd')}
-#```
+```{r, child=c('rocio/EnunciadoProblemas.Rmd')}
+```
 
 \newpage
 
 # Claudia Solís Aguilar
 
-#```{r, child=c('claudia/enunciados.Rmd')}
-#```
+```{r, child=c('claudia/enunciados.Rmd')}
+```
 
 \newpage
 

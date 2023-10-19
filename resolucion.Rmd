@@ -2,7 +2,7 @@
 title: |
   | Teoría de la decisión
   | Trabajo 1
-  | Enunciados de los problemas
+  | Resolución de los problemas
 author: |
   | Rocío Santos Mojarro
   | Claudia Solís Aguilar
@@ -31,15 +31,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Rocío Santos Mojarro
 
-#```{r, child=c('rocio/enunciados.Rmd')}
-#```
+```{r, child=c('rocio/Resolucion de problemas.Rmd')}
+```
 
 \newpage
 
 # Claudia Solís Aguilar
 
-#```{r, child=c('claudia/enunciados.Rmd')}
-#```
+```{r, child=c('claudia/soluciones.Rmd')}
+```
 
 \newpage
 
