@@ -4,10 +4,10 @@ author: "Rocío"
 date: '2023-10-19'
 output: pdf_document
 ---
-*Problema 1* 
+## Problema 1
 
 Crear una tabla de decision con valores inventados y resuelto en cada uno de los metodos o funciones individuales de Incertidumbre por separado, tanto en situacion favorable y desfavorable.
-```{r}
+```{r echo=FALSE}
 source("teoriadecision_funciones_incertidumbre.R", encoding = "UTF-8")
 
 m1<-crea.tablaX(c(2,3,4,-1,7,8,
@@ -15,9 +15,11 @@ m1<-crea.tablaX(c(2,3,4,-1,7,8,
                 numalternativas =4 ,
                 numestados = 3)
 
+knitr::kable(m1)
+
 ```
 
-*Problema 2 *
+## Problema 2
 
 Manu y Pepe son dos amigos que están haciendo el camino de Santiago. Acaban de llegar a la ciudad de Vigo y tienen que decidir donde alojarse.Estas son las distintas opciones.
 

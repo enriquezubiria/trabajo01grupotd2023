@@ -25,15 +25,6 @@ textoSolucion <- function(alternativas) {
 }
 ```
 
-# Enunciados
-
-```{r, child=c('enunciados.Rmd')}
-```
-
-\newpage
-
-# Soluciones
-
 ## Problema 1
 
 ```{r echo=FALSE}

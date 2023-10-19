@@ -10,12 +10,12 @@ source("teoriadecision_funciones_incertidumbre.R")
 ```
 
 
-# Ejercicio 1
+## Ejercicio 1
 
 Para la siguiente tabla de decisión, resolver mediante cada método de Incertidumbre tanto en el caso favorable como desfavorable.
 
 
-```{r}
+```{r echo=FALSE}
 tabla1 = crea.tablaX(c(3,-2,6,2,
                       8,4,2,6,
                       -1,5,7,3),
@@ -25,7 +25,7 @@ knitr::kable(tabla1)
 ```
 
 
-# Ejercicio 2
+## Ejercicio 2
 
 Un estudiante quiere apuntarse a una academia de inglés y está barajando distintas opciones para ver cuál le sale mejor de precio. Su idea es empezar en enero y hacer un curso intensivo de 6 meses para tener el título antes de verano. Estas son las tres academias que ha encontrado con la opción de curso intensivo:
 
