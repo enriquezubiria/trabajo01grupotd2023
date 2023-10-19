@@ -9,11 +9,6 @@ output:
 
 ```{r setupSolMaria, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-```
-
-Primero cargamos el fichero R donde se encuentran todas las funciones que vamos a necesitar para hacer los ejercicios.
-
-```{r}
 source("teoriadecision_funciones_incertidumbre.R")
 ```
 

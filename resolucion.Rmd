@@ -8,10 +8,49 @@ author: |
   | Claudia Solís Aguilar
   | María Vázquez de la Torre Becerra
   | Enrique Zubiría González
-date: "Octube 2023"
-output: html_document
+date: "octubre 2023"
+header-includes:
+   - \usepackage[spanish,es-tabla]{babel}
+output: pdf_document
+# output:
+#   pdf_document:
+#     toc: yes
+#     toc_depth: 1
 ---
 
-```{r setup, include=FALSE}
+```{r setupGlobal, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\newpage
+
+# Rocío Santos Mojarro
+
+#```{r, child=c('rocio/enunciados.Rmd')}
+#```
+
+\newpage
+
+# Claudia Solís Aguilar
+
+#```{r, child=c('claudia/enunciados.Rmd')}
+#```
+
+\newpage
+
+# María Vázquez de la Torre Becerra
+
+```{r, child=c('maria/Resolucion.Rmd')}
+```
+
+\newpage
+
+# Enrique Zubiría González
+
+```{r, child=c('enrique/soluciones.Rmd')}
 ```
