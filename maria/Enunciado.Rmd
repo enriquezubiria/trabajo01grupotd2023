@@ -8,14 +8,28 @@ output:
 ---
 
 ```{r setupEnunMaria, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = F)
+source("teoriadecision_funciones_incertidumbre.R")
 ```
 
-## Teoría de la Decisión bajo Incertidumbre
+## Problema 1
 
-En el siguiente documento vamos a enunciar los problemas inventados por cada miembro del grupo.
+Como vamos hacer una tabla con números aleatorios fijamos una semilla para que siempre nos salgan los mismos.
 
-#### Problema 1 (María Vázquez de la Torre Becerra) \newline
+```{r}
+set.seed(1234)
+```
+
+Creamos nuestra tabla de decisión con 7 alternativas y 4 estados.
+
+```{r}
+tabla1 <- crea.tablaX(rnorm(7*4,mean=20,sd=15), 7, 4)
+knitr::kable(tabla1)
+```
+
+Una vez que tenemos la tabla, vamos a ir aplicando cada criterio visto en clase tratando la tabla primero como beneficios y luego como costos.
+
+## Problema 2 \newline
 
 
 María y Daniel están buscando una hacienda para celebrar su boda, su mayor ilusión es celebrarla al aire libre, pero no saben si el día de su boda lloverá o no. Están en duda con tres Haciendas que les ofrecen las siguientes condiciones:
