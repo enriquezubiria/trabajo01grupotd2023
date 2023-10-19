@@ -1,0 +1,161 @@
+---
+title: "Soluciones"
+output: html_document
+date: "2023-10-19"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("teoriadecision_funciones_incertidumbre.R")
+```
+
+# Ejercicio 1
+
+Para la siguiente tabla de decisión, resolver mediante cada método de Incertidumbre tanto en el caso favorable como desfavorable.
+
+
+```{r}
+tabla1 = crea.tablaX(c(3,-2,6,2,
+                      8,4,2,6,
+                      -1,5,7,3),
+                    numalternativas =3,
+                    numestados = 4)
+knitr::kable(tabla1)
+```
+
+
+*Caso favorable:*
+
+  - Criterio de Wald
+
+```{r}
+criterio.Wald(tabla1, T)
+```
+
+Con este criterio se elige la alternativa 2
+
+  - Criterio Optimista
+
+```{r}
+criterio.Optimista(tabla1, T)
+```
+Con este criterio se elige la alternativa 2
+
+  - Criterio de Hurwicz
+  
+```{r}
+criterio.Hurwicz(tabla1, alfa = 0.4, T)
+```
+Con este criterio se elige la alternativa 2
+
+  - Criterio de Savage
+```{r}
+criterio.Savage(tabla1, T)
+```
+Con este criterio se elige la alternativa 2
+
+  - Criterio de Laplace
+  
+```{r}
+criterio.Laplace(tabla1, T)
+```
+Con este criterio se elige la alternativa 2
+
+  - Criteio Punto Ideal
+  
+```{r}
+criterio.PuntoIdeal(tabla1, T)
+```
+Con este criterio se elige la alternativa 2
+
+
+*Caso desfavorable:*
+
+  - Criterio de Wald
+  
+```{r}
+criterio.Wald(tabla1, F)
+```
+Con este criterio se elige la alternativa 1
+
+  - Criterio Optimista
+  
+```{r}
+criterio.Optimista(tabla1, F)
+```
+Con este criterio se elige la alternativa 1
+
+  - Criterio de Hurwicz
+  
+```{r}
+criterio.Hurwicz(tabla1, alfa = 0.4, F)
+```
+Con este criterio se elige la alternativa 1
+
+  - Criterio de Savage
+  
+```{r}
+criterio.Savage(tabla1, F)
+```
+Con este criterio se elige la alternativa 1
+
+  - Criterio de Laplace
+  
+```{r}
+criterio.Laplace(tabla1, F)
+```
+Con este criterio se elige la alternativa 1
+
+  - Criteio Punto Ideal
+  
+```{r}
+criterio.PuntoIdeal(tabla1, F)
+```
+Con este criterio se elige la alternativa 1
+
+
+
+# Ejercicio 2
+
+Un estudiante quiere apuntarse a una academia de inglés y está barajando distintas opciones para ver cuál le sale mejor de precio. Su idea es empezar en enero y hacer un curso intensivo de 6 meses para tener el título antes de verano. Estas son las tres academias que ha encontrado con la opción de curso intensivo:
+
+  - Academia 1. Matrícula gratuita. Con un precio de 110€ al mes y tiene la opción de incluir el libro de la academia por 50€ más o usar sus propios apuntes que coja en clase. Además, incluye un simulacro de exámen antes de la prueba oficial.
+  
+  - Academia 2. La matrícula tiene un coste de 70€ y el mes sale a 75€. Obligan a usar libro, el cuál se tiene que pagar en el momento de matriculación y cuesta 45€. Si quiere hacer exámenes de prueba, tendrá que pagar 30€ también en el momento en el que se matricule.
+  
+  - Academia 3. La matrícula tiene un coste de 90€ y el mes sale a 80€. Ahora hay un oferta en la que por 5€ más al mes se tiene el libro incluído y 2 exámenes de prueba.
+  
+¿En qué academia se debería apuntar si busca la más barata?
+
+Planteamiento del problema:
+
+  -Alternativas
+  1. Academia 1
+  2. Academia 2
+  3. Academia 3
+  
+  - Estados de la naturaleza
+  1. Matriculación y mensualidad
+  2. Matriculación y mensualidad + libro + exámenes de prueba
+  
+Resolución del problema (minimizando los costos):
+
+
+```{r}
+m11 = 110 * 6
+m12 = (110 * 6) + 50
+m21 = 70 + (75 * 6) + 45
+m22 = 70 + (75 * 6) + 45 + 30
+m31 = 90 + (80 * 6)
+m32 = 90 + (85*6)
+
+tabla = crea.tablaX(c(m11, m12,
+                       m21, m22,
+                       m31, m32), 3, 2)
+
+row.names(tabla) = c("Academia 1", "Academia 2", "Academia 3")
+res = criterio.Todos(tabla, favorable = F)
+res
+```
+
+Según todos los criterios, el estudiante se debería apuntar a la Academia 2.
