@@ -2,112 +2,144 @@
 title: "Resolucion de problema"
 author: "Rocío"
 date: '2023-10-19'
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
-*Problema 1 *
 
-#cargamos las funciones
+# Problema 1
+
+```{r echo=FALSE}
 source("teoriadecision_funciones_incertidumbre.R", encoding = "UTF-8")
 
+```
 
-#creamos la tabla 
+En primer lugar, creamos una tabla con datos aleatorios para trabajar tanto en situaciones favorables como en desfavorables. Nos quedaria la siguiente tabla.
+
+```{r echo=FALSE}
 m1<-crea.tablaX(c(2,3,4,-1,7,8,
                   6,2,4,5,1,0),
                 numalternativas =4 ,
                 numestados = 3)
-m1
-#Primero vamos a solucioanrlo en situacion favorable 
+knitr::kable(m1)
 
-#metodo wald
+
+```
+
+Primero vamos a solucionarlo en situacion favorable aplicando todos los criterios.
+
+***Metodo Wald***
+
+```{r echo=FALSE}
 sol_w<-criterio.Wald(m1)
-sol_w
-#Las mejores soluciones son d1 y d3 según el método wald
+```
 
-#Metodo optimista
+Segun el método Wald Las mejores soluciones son 1 y 3 con un valor optimo de 2
+
+***Metodo Optimista***
+
+```{r echo=FALSE}
 sol_op<-criterio.Optimista(m1)
-sol_op
+```
 
-#La mejor solucion según el criterio optimista es d2 
+La mejor solucion según el criterio optimista es la segunda, con un valor optimo de 8
 
+***Criterio Hurwicz***
 
-#criterio Hurwicz
+```{r echo=FALSE}
 sol_hu<-criterio.Hurwicz(m1)
-sol_hu
-criterio.Hurwicz.General(m1)
-#La mejor solucion segun el criterio Hurwicz es d3
 
-#criterio savage 
+```
+
+La mejor solucion segun el criterio Hurwicz es la numero tres, con un valor optimo de 3.2
+
+Ahora vamos a dibujar el grafico que pertenece al criterio de Hurwicz
+
+```{r echo=FALSE}
+dibuja.criterio.Hurwicz(m1)
+```
+
+***Criterio savage***
+
+```{r echo=FALSE}
 sol_sa<-criterio.Savage(m1)
-sol_sa
+```
 
-#La mejor solucion desgun el criterio savage es d1 
+La mejor solucion desgun el criterio savage es la primera, con un valor optimo de 4. 
 
-#criterio Laplace
+***Criterio Laplace***
+
+```{r echo=FALSE}
 sol_la<-criterio.Laplace(m1)
-sol_la
-#La mejor solucion segun el criterio Laplace es d2 
+```
 
-#criterio punto ideal
+La mejor solucion segun el criterio Laplace es la segunda, con un valor optimo de 4.6666
+
+***Criterio Punto Ideal***
+
+```{r echo=FALSE}
 sol_pi<-criterio.PuntoIdeal(m1)
-sol_pi
-#La mejor oslucion segun el criterio de Punto Ideal es d3
- 
+```
 
-#Por lo tanto, como conclusion final, podemos decir que la mejor
-#solcuion para este problema es d3
+La mejor solución según el criterio de Punto Ideal es la número tres, con un valor optimo de 6.403
 
-#Ahora, vamos a trabajar con la misma tabla pero vamos a 
-#hacerlo es situacion desfavorable. 
+Por lo tanto, como conclusión final, podemos decir que la mejor solcion para este problema es la numero tres.
 
-#Utilizamos la misma tabla 
+Ahora, vamos a trabajar con la misma tabla pero vamos a hacerlo es situacion desfavorable.
 
-m1
+***Criterio Wald***
 
-#Criterio Wald 
+```{r echo=FALSE}
 
 sol_des_wa<-criterio.Wald(m1,favorable = F)
-sol_des_wa
 
-#La mejor solucion segun el metodo wald es d1 
+```
 
-#Criterio optimista 
+La mejor solucion segun el metodo wald es la primera, con un valor optimo de 4. 
+
+***Criterio optimista***
+
+```{r echo=FALSE}
 sol_des_op<-criterio.Optimista(m1,favorable = F)
-sol_des_op
-#La menjor solucion segun el criterio optimista es d2
+```
 
+La mejor solucion segun el criterio optimista es la segunda, con un valor optimo de -1.
 
-#Criterio Hurwicz 
+***Criterio Hurwicz***
+
+```{r echo=FALSE}
 sol_des_Hu<-criterio.Hurwicz(m1,favorable = F)
-sol_des_Hu
+```
 
-#La mejor solucion segun el criterio Hurwicz es d1 
+La mejor solucion segun el criterio Hurwicz es la primera, con un valor optimo de 3.4.
 
-#Criterio Savage 
+***Criterio Savage***
+
+```{r echo=FALSE}
 sol_des_sav<-criterio.Savage(m1, favorable = F)
-sol_des_sav
-#La mejor solcuion segun el criterio savage es d1 
+```
 
-#Criterio Laplace 
+La mejor solción según el criterio savage es d1
+
+***Criterio Laplace***
+
+```{r echo=FALSE}
 sol_des_La<-criterio.Laplace(m1, favorable = F)
-sol_sa
-#La mejor solcuion segun el creiterio Laplace es d1 
+```
 
+La mejor solución según el criterio Laplace es la primera, con un valor optimo de 2. 
 
+***Criterio Punto Ideal***
 
-#Criterio Punto Ideal 
+```{r echo=FALSE}
 sol_des_PI<-criterio.PuntoIdeal(m1, favorable = F)
-sol_des_PI
+```
 
-#La mejor solucion segun el criterio de punto ideal es d1 
+La mejor solucion segun el criterio de punto ideal es la primera, con un valor optimo de 5.3851
 
-#Por lo tanto, como conclusion final, podemos decir que la mejor
-#solcuion para el caso desfavorable es d1
+Por lo tanto, como conclusion final, podemos decir que la mejor solcuion para el caso desfavorable es la primera opcion. 
 
-
-
-
-
-*Problema 2*
+# Problema 2
 
 Manu y Pepe son dos amigos que están haciendo el camino de Santiago. Acaban de llegar a la ciudad de Vigo y tienen que decidir donde alojarse.Estas son las distintas opciones.
 
@@ -119,8 +151,7 @@ Manu y Pepe son dos amigos que están haciendo el camino de Santiago. Acaban de 
 
 ¿ Qué opciona seria la mejor si su objetivo es minimizar los costes?
 
-
-#Planteamiento
+**Planteamiento**
 
 Un decisor, dos personas.
 
@@ -140,44 +171,30 @@ Estados de la naturaleza
 
 -   e2:dormir directamente sin cenar
 
-Valoraciones
 
--   Estados e1
 
-x1,1 = 8 * 2 + 10 * 2=36
 
-x2,1= 24 + 30 =54
-
-x3,1= 40* 2 =80
-
--   Estados e2
-
--   x1,2= 8 * 2=16*
-
--   x2,2= 12*2 = 24
-
--   x3,2= 40*2 = 80
-
-Introduccion de datos
-
-```{r}
+```{r echo=FALSE}
 source("teoriadecision_funciones_incertidumbre.R"
 ,encoding="UTF-8")
+library(knitr)
 
 m<-crea.tablaX(c(36,12,64,24,80,80),
                numalternativas =3 ,
                numestados = 2)
-m
+
 
 rownames(m)<-c("Albergue Publico", "Hostal","Hotel ")
 colnames(m)<-c("dormir y cenar", " solo dormir")
-m
+
 ```
 
-**Solución del problema**
+Solución del problema
 
-```{r}
+```{r echo=FALSE}
 sol<-criterio.Todos(m, favorable = F, alfa=0.5)
-sol
+knitr::kable(sol)
+
 ```
-Vemos que la mejor opcion es la del albergue publico 
+
+Vemos que la mejor opcion es la del albergue publico
