@@ -5,7 +5,7 @@ date: "2023-10-19"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 source("teoriadecision_funciones_incertidumbre.R")
 ```
 
@@ -129,13 +129,18 @@ Un estudiante quiere apuntarse a una academia de inglés y está barajando disti
 
 Planteamiento del problema:
 
-  -Alternativas
+  - Alternativas
+  
   1. Academia 1
+  
   2. Academia 2
+  
   3. Academia 3
   
   - Estados de la naturaleza
+  
   1. Matriculación y mensualidad
+  
   2. Matriculación y mensualidad + libro + exámenes de prueba
   
 Resolución del problema (minimizando los costos):
