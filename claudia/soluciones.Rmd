@@ -24,94 +24,82 @@ knitr::kable(tabla1)
 ```
 
 
-*Caso favorable:*
+**Caso favorable:**
 
   - Criterio de Wald
-
 ```{r}
-criterio.Wald(tabla1, T)
+wald_fav = criterio.Wald(tabla1, T)
 ```
-
-Con este criterio se elige la alternativa 2
+  Con este criterio se elige la alternativa 2
 
   - Criterio Optimista
-
 ```{r}
-criterio.Optimista(tabla1, T)
+opt_fav = criterio.Optimista(tabla1, T)
 ```
-Con este criterio se elige la alternativa 2
+  Con este criterio se elige la alternativa 2
 
   - Criterio de Hurwicz
-  
 ```{r}
-criterio.Hurwicz(tabla1, alfa = 0.4, T)
+hurwicz_fav = criterio.Hurwicz(tabla1, alfa = 0.4, T)
 ```
-Con este criterio se elige la alternativa 2
+   Con este criterio se elige la alternativa 2
 
   - Criterio de Savage
 ```{r}
-criterio.Savage(tabla1, T)
+savage_fav = criterio.Savage(tabla1, T)
 ```
-Con este criterio se elige la alternativa 2
+   Con este criterio se elige la alternativa 2
 
   - Criterio de Laplace
-  
 ```{r}
-criterio.Laplace(tabla1, T)
+laplace_fav = criterio.Laplace(tabla1, T)
 ```
-Con este criterio se elige la alternativa 2
+   Con este criterio se elige la alternativa 2
 
-  - Criteio Punto Ideal
-  
+  - Criterio Punto Ideal
 ```{r}
-criterio.PuntoIdeal(tabla1, T)
+puntoIdeal_fav = criterio.PuntoIdeal(tabla1, T)
 ```
-Con este criterio se elige la alternativa 2
+  Con este criterio se elige la alternativa 2
 
 
-*Caso desfavorable:*
+**Caso desfavorable:**
 
   - Criterio de Wald
-  
 ```{r}
-criterio.Wald(tabla1, F)
+wald_desf = criterio.Wald(tabla1, F)
 ```
-Con este criterio se elige la alternativa 1
-
+   Con este criterio se elige la alternativa 1
+  
   - Criterio Optimista
-  
 ```{r}
-criterio.Optimista(tabla1, F)
+opt_desf = criterio.Optimista(tabla1, F)
 ```
-Con este criterio se elige la alternativa 1
+   Con este criterio se elige la alternativa 1
 
   - Criterio de Hurwicz
-  
 ```{r}
-criterio.Hurwicz(tabla1, alfa = 0.4, F)
+hurwicz_desf = criterio.Hurwicz(tabla1, alfa = 0.4, F)
 ```
-Con este criterio se elige la alternativa 1
+   Con este criterio se elige la alternativa 1
 
   - Criterio de Savage
-  
 ```{r}
-criterio.Savage(tabla1, F)
+savage_desf = criterio.Savage(tabla1, F)
 ```
-Con este criterio se elige la alternativa 1
+  Con este criterio se elige la alternativa 1
 
   - Criterio de Laplace
-  
 ```{r}
-criterio.Laplace(tabla1, F)
+laplace_desf = criterio.Laplace(tabla1, F)
 ```
-Con este criterio se elige la alternativa 1
+  Con este criterio se elige la alternativa 1
 
-  - Criteio Punto Ideal
-  
+  - Criterio Punto Ideal
 ```{r}
-criterio.PuntoIdeal(tabla1, F)
+puntoideal_desf = criterio.PuntoIdeal(tabla1, F)
 ```
-Con este criterio se elige la alternativa 1
+  Con este criterio se elige la alternativa 1
 
 
 
@@ -160,7 +148,7 @@ tabla = crea.tablaX(c(m11, m12,
 
 row.names(tabla) = c("Academia 1", "Academia 2", "Academia 3")
 res = criterio.Todos(tabla, favorable = F)
-res
+knitr::kable(res)
 ```
 
 Según todos los criterios, el estudiante se debería apuntar a la Academia 2.
