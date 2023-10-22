@@ -26,7 +26,7 @@ El repositorio contiene los siguientes ficheros:
 
 La organización la hemos hecho, principalmente, mediante un grupo de *Whatsapp*, ya que algunos de nosotros no va a clase con regularidad y era el medio más fácil. Una vez creado el repositorio y empezado a subir contenidos hemos utilizado también las *issues* para asignarnos tareas (subir los contenidos propios, generar los PDFs o el *README*, por ejemplo).
 
-El constituir el grupo tuvimos problemas para encontrar a Pedro Seco. No lo localizábamos ni en la clase, ni en el grupo de *Whatsapp* que hay del curso, ni mediante la herramienta de *Mensajes del curso* de la Enseñanza Virtual. Cuando por fin lo encontramos nos comentó que, por motivos laborales, no estaba siguiendo la asignatura y no iba a presentar el trabajo.
+Al constituir el grupo tuvimos problemas para encontrar a Pedro Seco. No lo localizábamos ni en la clase, ni en el grupo de *Whatsapp* que hay del curso, ni mediante la herramienta de *Mensajes del curso* de la Enseñanza Virtual. Cuando por fin lo encontramos nos comentó que, por motivos laborales, no estaba siguiendo la asignatura y no iba a presentar el trabajo.
 
 Como, sin contar a Pedro Seco, éramos cuatro personas en el grupo (el mínimo que el enunciado del trabajo establece) hemos realizado el trabajo los cuatro.
 
