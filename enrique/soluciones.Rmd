@@ -27,15 +27,22 @@ textoSolucion <- function(alternativas) {
 
 ## Problema 1
 
+### Enunciado
+
+Resolver, con cada uno de los métodos estudiados, el problema definido por la siguiente tabla de decisión, donde los valores son costes:
+
 ```{r echo=FALSE}
 tabla1 %>%
   `row.names<-`(c("$a_1$", "$a_2$", "$a_3$", "$a_4$", "$a_5$")) %>%
   kable(col.names = c("$\\omega_1$", "$\\omega_2$", "$\\omega_3$", "$\\omega_4$"))
+```
 
+### Solución
+
+```{r echo=FALSE}
 solucion1Wald <- criterio.Wald(tabla1, favorable=FALSE)
 solucion1Optimista <- criterio.Optimista(tabla1, favorable=FALSE)
 alfa <- .6
-#solucion1Hurwicz <- criterio.Hurwicz(tabla1, alfa=alfa, favorable=FALSE)
 solucion1Savage <- criterio.Savage(tabla1, favorable=FALSE)
 solucion1Laplace <- criterio.Laplace(tabla1, favorable=FALSE)
 solucion1PuntoIdeal <- criterio.PuntoIdeal(tabla1, favorable=FALSE)
@@ -48,7 +55,7 @@ solucion1PuntoIdeal <- criterio.PuntoIdeal(tabla1, favorable=FALSE)
 -   **Criterio de punto ideal**: resulta `r textoSolucion(solucion1PuntoIdeal$AlternativaOptima)`, con un coste de `r solucion1PuntoIdeal$ValorOptimo`.
 -   **Criterio de Hurwicz**^[Hemos dejado este criterio para el final por motivos de presentación, ya que su desarrollo es algo más largo y tiene un gráfico]: la alternativa óptima depende del valor de $\alpha$, como puede verse en esta gráfica:
 
-```{r echo=FALSE, out.width="75%", fig.align='center'}
+```{r echo=FALSE, out.width="95%", fig.align='center'}
 solucion1Hurwicz <- dibuja.criterio.Hurwicz_Intervalos(tabla1, favorable=FALSE, mostrarGrafico = TRUE)
 ```
 
@@ -63,23 +70,32 @@ solucion1Hurwicz$IntervalosAlfa %>%
         align=c('l', 'r'))
 ```
 
-\newpage
-
 ## Problema 2
+
+### Enunciado
+
+Una empresa está estudiando la adquisición de nueva maquinaria para hacer frente al incremento de la demanda previsto para los próximos meses.
+
+Las posibles alternativas de compra y los beneficios estimados para cada alternativa (en miles de euros) dependiendo del incremento de demanda de los próximos meses (alto, medio o bajo) se recogen en la siguiente tabla:
+
+```{r echo=FALSE}
+tabla2 %>%
+  kable(caption = "Beneficios según incremento de demanda")
+```
+
+### Solución
 
 Puede verse en la tabla resumen que todos los criterios, salvo el pesimista (Wald), coinciden en la alternativa más favorable, por lo que la decisión final que elegiríamos sería la **máquina 3**.
 
 ```{r echo=FALSE, message=FALSE}
-library(kableExtra)
 
-# alfa <- 0.6
-# 
-# tabla2 %>%
-#   kable(caption = "Beneficios según incremento de demanda")
+# Cambiamos elnombre de las filas para una mejor presentación
+tabla2 <- tabla2 %>%
+          `row.names<-`(c("máq. 1", "máq. 2", "máq. 3", "máq. 4"))
+
+alfa <- 0.6
 
 criterio.Todos(tabla2, alfa=alfa, favorable=TRUE) %>%
   as.data.frame() %>%
-  #mutate(Alternativa = alternativas1_latex[strtoi(Alternativa)]) %>%
-  kable(caption = paste0("alternativa óptima según $\\alpha$=", alfa)) %>%
-  kable_styling(font_size = 8)
+  kable(caption = paste0("alternativa óptima según $\\alpha$=", alfa))
 ```

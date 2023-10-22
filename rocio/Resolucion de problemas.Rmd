@@ -7,7 +7,7 @@ output:
   html_document: default
 ---
 
-# Problema 1
+## Problema 1
 
 ```{r echo=FALSE}
 source("teoriadecision_funciones_incertidumbre.R", encoding = "UTF-8")
@@ -139,7 +139,7 @@ La mejor solucion segun el criterio de punto ideal es la primera, con un valor o
 
 Por lo tanto, como conclusion final, podemos decir que la mejor solcuion para el caso desfavorable es la primera opcion. 
 
-# Problema 2
+## Problema 2
 
 Manu y Pepe son dos amigos que están haciendo el camino de Santiago. Acaban de llegar a la ciudad de Vigo y tienen que decidir donde alojarse.Estas son las distintas opciones.
 
